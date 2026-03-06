@@ -5,15 +5,14 @@
     "moduleResolution": "NodeNext",
     "outDir": "./gen/srv",
     "rootDir": ".",
-    "strict": true,
+    "strict": false,
     "esModuleInterop": true,
+    "allowJs": true,
     "types": ["node"],
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true
+    "noEmit": true
   },
   "include": ["srv/**/*.ts"],
   "exclude": ["node_modules", "gen"]
