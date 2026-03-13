@@ -3,14 +3,19 @@ ID: bookshop
 version: 1.0.0
 description: CAP Bookshop Application
 
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npm install
+        - npx cds build --production
+
 modules:
   - name: bookshop-srv
     type: nodejs
     path: gen/srv
     parameters:
       buildpack: nodejs_buildpack
-    build-parameters:
-      builder: npm
     requires:
       - name: bookshop-db
 
