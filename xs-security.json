@@ -1,0 +1,38 @@
+{
+  "xsappname": "bookshop",
+  "tenant-mode": "dedicated",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.Viewer",
+      "description": "Kitap katalogu goruntuleme"
+    },
+    {
+      "name": "$XSAPPNAME.Admin",
+      "description": "Kitap katalogu yonetimi"
+    }
+  ],
+  "attributes": [],
+  "role-templates": [
+    {
+      "name": "Viewer",
+      "description": "Kitap katalogu goruntuleme rolu",
+      "scope-references": [
+        "$XSAPPNAME.Viewer"
+      ]
+    },
+    {
+      "name": "Admin",
+      "description": "Kitap katalogu yonetim rolu",
+      "scope-references": [
+        "$XSAPPNAME.Admin",
+        "$XSAPPNAME.Viewer"
+      ]
+    }
+  ],
+  "oauth2-configuration": {
+    "credential-types": [
+      "binding-secret",
+      "x509"
+    ]
+  }
+}

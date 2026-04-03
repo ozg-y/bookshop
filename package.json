@@ -4,17 +4,35 @@
   "description": "Kitap Katalogu - CAP TypeScript",
   "private": true,
   "dependencies": {
-    "@sap/cds": "^8",
-    "express": "^4"
+    "@cap-js/sqlite": "^2.2.0",
+    "@cap-js/hana": "^2",
+    "@sap/cds": "^9.8.4",
+    "@sap/xssec": "^4.12.2",
+    "express": "^4",
+    "passport": "^0.7.0"
   },
   "devDependencies": {
-    "@sap/cds-dk": "^8",
-    "typescript": "^5",
-    "@types/node": "^20"
+    "@sap/cds-dk": "^9.8.2",
+    "@types/node": "^20",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
   },
   "scripts": {
     "start": "cds-serve",
     "watch": "cds watch",
     "build": "cds build && tsc"
+  },
+  "cds": {
+    "requires": {
+      "auth": {
+        "kind": "dummy"
+      },
+      "[production]": {
+        "auth": {
+          "kind": "xsuaa"
+        },
+        "db": "hana"
+      }
+    }
   }
 }
