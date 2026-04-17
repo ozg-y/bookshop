@@ -68,8 +68,8 @@ modules:
       requires:
         - name: bookshop-app
           artifacts:
-            - "./*"
-          target-path: resources/bookshop-books/
+            - bookshop-app.zip
+          target-path: resources/
 
   # ---- Fiori App (build artifact) ----
   - name: bookshop-app
@@ -78,10 +78,9 @@ modules:
     build-parameters:
       builder: custom
       commands:
-        - echo "nothing to build"
-      build-result: webapp
-      supported-platforms:
-        []
+        - rm -rf dist && mkdir dist && cd webapp && zip -r ../dist/bookshop-app.zip . && cd ..
+      build-result: dist
+      supported-platforms: []
 
 resources:
   - name: bookshop-auth
